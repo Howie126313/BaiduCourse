@@ -1,6 +1,8 @@
 <template>
     <div class="hello">
         <h1>Hello {{msg}}</h1>
+        <input type="text" value="{= val =}">
+        <p>{{val}}</p>
     </div>
 </template>
 
@@ -8,7 +10,8 @@
     export default {
         initData () {
             return {
-                msg: 'world'
+                msg: 'world',
+                val: 'val'
             };
         }
     }

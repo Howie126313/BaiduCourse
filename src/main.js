@@ -7,4 +7,3 @@ import Hello from './component/Hello.san'
 router.add({rule: '/', Component: Hello, target: '#root'})
 
 router.start()
-

@@ -5,8 +5,8 @@
   "license": "MIT",
   "scripts": {
     "test": "echo \"Error: no test specifed\" && exit 1",
-    "build": "webpack --config webpack.prod.js",
-    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "build": "webpack --config config/webpack.prod.js",
+    "start": "webpack-dev-server --open --config config/webpack.dev.js",
     "test1": "webpack --config webpack.test.js"
   },
   "dependencies": {
