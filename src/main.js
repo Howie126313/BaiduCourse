@@ -1,4 +1,4 @@
-import san from 'san'
+import san, {DataTypes} from 'san'
 
 import {router} from 'san-router'
 
