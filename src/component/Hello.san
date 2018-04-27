@@ -4,7 +4,7 @@
       <div class="wrap">
         <div class="inputWrap">
           <input type="text" placeholder="姓名（string）" value="{= info.name =}">
-          <input type="text" placeholder="年龄（number）" value="{= info.age =}">
+          <input type="text" placeholder="年龄（number）" value="{= ageNum =}" on-input="numberStr(ageNum)">
           <input type="text" placeholder="简介（string）" value="{= info.des =}">
         </div> 
         <div class="btnWrap">
@@ -13,7 +13,7 @@
         </div>
         <div class="infoWrap">
           <div>姓名：<p>{{info.name}}</p></div>
-          <div>年龄：<p>{{info.age}}</p></div>
+          <div>年龄：<p>{{age}}</p></div>
           <div>描述：<p>{{info.des}}</p></div>
         </div>
       </div>
@@ -21,19 +21,42 @@
 </template>
 
 <script>
+  import {DataTypes} from 'san'
   export default {
     initData () {
       return {
         msg: 'San',
         info: {
-          name: '',
-          age: '',
-          des: ''
+          name: null,
+          age: null,
+          des: null
         }
       };
     },
+    dataTypes: {
+      info: DataTypes.shape({
+        name: DataTypes.string,
+        age: DataTypes.number,
+        des: DataTypes.string
+      })
+    },
+    numberStr (str) {
+      if (typeof(Number(str)) == 'number' && !isNaN(Number(str))) {
+        this.data.set('age', Number(str))
+      } else if (Number(str) == '0') {
+        this.data.set('ageNum', null)
+      } else {
+        alert('年龄只能是数字')
+        this.data.set('ageNum', null)
+      }
+    },
     clearData (data) {
-      this.data.set('info', '')
+      let clear = {
+        name: '',
+        age: null,
+        des: ''
+      }
+      this.data.set('info', clear)
     }
   }
 </script>
