@@ -51,6 +51,7 @@ export default {
   delect (index) {
     this.data.removeAt('resArr', index)
   }
+  // test
 }
 </script>
 
