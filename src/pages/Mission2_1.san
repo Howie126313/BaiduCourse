@@ -1,15 +1,20 @@
 <template>
-  <div class="hello">
-    <div class="content">
-      <div class="btnList">
-        <router-link class="jumpBtn" to="/mission2_1">MVVM 2.1</router-link>    
-        <router-link class="jumpBtn" to="/mission2_2">MVVM 2.2</router-link>    
-        <router-link class="jumpBtn" to="/mission2_3">MVVM 2.3</router-link>
-        <router-link class="jumpBtn" to="/mission2_4">MVVM 2.4</router-link>
-      </div>    
-      <div class="title">
-        <div class="color">Hello {{msg}}</div>
-      </div>      
+  <div class="hello">  
+    <div class="wrap">
+      <div class="inputWrap">
+        <input type="text" placeholder="姓名（string）" value="{= info.name =}">
+        <input type="text" placeholder="年龄（number）" value="{= ageNum =}" on-input="numberStr(ageNum)">
+        <input type="text" placeholder="简介（string）" value="{= info.des =}">
+      </div> 
+      <div class="btnWrap">
+        <span>信息：</span>
+        <button on-click="clearData()">移除信息</button>
+      </div>
+      <div class="infoWrap">
+        <div>姓名：<p>{{info.name}}</p></div>
+        <div>年龄：<p>{{age}}</p></div>
+        <div>描述：<p>{{info.des}}</p></div>
+      </div>
     </div>
   </div>
 </template>
@@ -62,40 +67,30 @@
   }
 </script>
 
-<style>
-  .content {
-    display: flex;
-  }
-
-  .btnList {
-    width: 10vw;
-    height: 100vh;
+<style scoped>
+  .wrap {
+    width: 50vw;
     display: flex;
     flex-direction: column;
-    background-color: #F7FAFF;
-    text-align: center;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+  }
+  
+  .inputWrap, .btnWrap, .infoWrap {
+    margin: 10px;
   }
 
-  .btnList a {
-    color: black;
-    text-decoration: none;
-    margin: 5px 0;
+  .infoWrap>div{
+    display: flex;
+    align-items: center;
   }
 
-  .title {
-    flex: 1;
-    position: relative;
-  }
-
-  .color {
-    width: fit-content;
-    font-size: 80px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-image: linear-gradient(to right, deeppink, dodgerblue); 
-    -webkit-background-clip: text; 
-    color: transparent;
+  .infoWrap p {
+    min-width: 100px;
+    font-size: 14px;
+    line-height: 19px;
+    height: 20px;
+    border-bottom: 1px solid black;
   }
 </style>
