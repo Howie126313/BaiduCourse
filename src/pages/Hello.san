@@ -4,6 +4,7 @@
     <div class="btnList">
       <router-link class="jumpBtn" to="/mission2_2">跳转2.2</router-link>    
       <router-link class="jumpBtn" to="/mission2_3">跳转2.3</router-link>
+      <router-link class="jumpBtn" to="/mission2_4">跳转2.4</router-link>
     </div>    
     <div class="wrap">
       <div class="inputWrap">

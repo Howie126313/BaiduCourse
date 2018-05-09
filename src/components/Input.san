@@ -1,0 +1,23 @@
+<template>
+  <div class="myInput">
+    <input type="text" placeholder="子组件" value="{= val =}">
+    <button on-click="sendData">传递数据</button>
+  </div>
+</template>
+
+<script>
+export default {
+  initData () {
+    return {
+      val: ''
+    }
+  },
+  sendData () {
+    this.dispatch('UI: inputVal', this.data.get('val'))
+  }
+}
+</script>
+
+<style scoped>
+
+</style>

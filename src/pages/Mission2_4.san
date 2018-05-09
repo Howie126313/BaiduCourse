@@ -1,0 +1,30 @@
+<template>
+  <div>
+    <my-input /></my-input>
+    <p>我是父组件{{words}}</p>
+  </div>
+</template>
+
+<script>
+import MyInput from '../components/Input.san'
+
+export default {
+  components: {
+    'my-input': MyInput
+  },
+  initData () {
+    return {
+      words: '静静等待用户输入'
+    }
+  },
+  messages: {
+    'UI: inputVal' (arg) {
+      this.data.set('words', arg.value)
+    }
+  }
+}
+</script>
+
+<style scoped>
+
+</style>
