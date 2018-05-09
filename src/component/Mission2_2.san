@@ -1,0 +1,67 @@
+<template>
+  <div class='mission2_2'>
+    <div class="content">
+      <table border="1" cellspacing="0">
+        <thead>
+          <tr>
+            <th style="width:60px">姓名</th>
+            <th style="width:80px">审核状态</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr s-for="item, index in resArr">
+            <td>{{item.name}}</td>
+            <td>
+              {{
+                item.state ? item.state === 1 ? '合格' : '不合格':'待审核'
+              }}
+            </td>
+            <td class="btnWrap">
+              <button on-click="changeState(index)">审核</button>
+              <button on-click="delect(index)">删除</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <button on-click="add()">添加</button>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  initData () {
+    return {
+      resArr: [
+        {name: '张三', state: 0},
+        {name: '李四', state: 0},
+        {name: 'why', state: 0},
+        {name: 'sjy', state: 0},
+        {name: 'll', state: 0}
+      ]
+    }
+  },
+  add () {
+    this.data.push('resArr', {name: 'new', state: 0})
+  },
+  changeState (index) {
+    this.data.set(this.resArr[index].state, 1)
+  },
+  delect (index) {
+    this.data.removeAt('resArr', index)
+  }
+}
+</script>
+
+<style scoped>
+  .content {
+    width: fit-content;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .btnWrap {
+    padding: 5px;
+  }
+</style>
