@@ -1,0 +1,50 @@
+<template>
+  <div>
+    <div 
+    class="{{click ? 'clickCube' : 'cube'}}" 
+    on-click="changeClass()">
+      class
+    </div>
+    <div 
+    class="cube" 
+    style="{{styleClick ? 'background:' + 'red' : ''}}"
+    on-click="changeStyle()">
+      style
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  initData () {
+    return {
+      click: false,
+      styleClick: false
+    }
+  },
+  changeClass () {
+    let bool = this.data.get('click')
+    this.data.set('click', !bool)
+  },
+  changeStyle () {
+    let bool = this.data.get('styleClick')
+    this.data.set('styleClick', !bool)
+  }
+}
+</script>
+
+<style scoped>
+  .cube {
+    width: 10vw;
+    height: 10vw;
+    background-color: aqua;
+    margin: 0 auto;
+  }
+
+  .clickCube {
+    width: 10vw;
+    height: 10vw;
+    background-color: blueviolet;
+    margin: 0 auto; 
+  }
+</style>

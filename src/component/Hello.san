@@ -1,7 +1,10 @@
 <template>
   <div class="hello">
     <h1>Hello {{msg}}</h1>
-    <router-link class="jumpBtn" to="/mission2_2">跳转2.2</router-link>    
+    <div class="btnList">
+      <router-link class="jumpBtn" to="/mission2_2">跳转2.2</router-link>    
+      <router-link class="jumpBtn" to="/mission2_3">跳转2.3</router-link>
+    </div>    
     <div class="wrap">
       <div class="inputWrap">
         <input type="text" placeholder="姓名（string）" value="{= info.name =}">
@@ -98,5 +101,10 @@
 
   .jumpBtn {
     color: black;
+  }
+
+  .btnList {
+    display: flex;
+    flex-direction: column;
   }
 </style>
