@@ -18,7 +18,7 @@
               }}
             </td>
             <td class="btnWrap">
-              <button on-click="changeState(index)">审核</button>
+              <button on-click="changeState(item, index)">审核</button>
               <button on-click="delect(index)">删除</button>
             </td>
           </tr>
@@ -45,8 +45,8 @@ export default {
   add () {
     this.data.push('resArr', {name: 'new', state: 0})
   },
-  changeState (index) {
-    this.data.set(this.resArr[index].state, 1)
+  changeState (item, index) {
+    this.data.splice('resArr', [index, 1, {name: item.name, state: 1}])
   },
   delect (index) {
     this.data.removeAt('resArr', index)
