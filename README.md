@@ -1,4 +1,4 @@
-###Get Start
+# Get Start
 
 项目使用 webpack4 和 san 构建
 
