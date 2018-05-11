@@ -1,0 +1,63 @@
+<template>
+  <div class="sanInput">
+    <div class="inputWrap">
+      <input 
+       type="text"
+       on-input="inputHandle"
+       on-focus="focusHandle"
+       on-blur="blurHandle"
+       placeholder="{{placeholder}}" 
+       value="{= value =}"/>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  inntData () {
+    return {
+      placeholder: ''
+    }  
+  },
+  inited () {
+    console.log(this.data.get('value'))
+  },
+  inputHandle () {
+    this.fire('input', this.data.get('val'))
+    this.data.set('value', '正在输入  ' + this.data.get('value'))
+  },
+  focusHandle () {
+    this.fire('focus') 
+    document.querySelector('.sanInput>.inputWrap').style.border = '1px solid black'   
+  },
+  blurHandle () {
+    this.fire('blur')
+    document.querySelector('.sanInput>.inputWrap').style.border = '1px solid #ccc'    
+  }
+}
+</script>
+
+<style scoped>
+.sanInput {
+    width: fit-content;
+    margin: 20px;
+}
+
+.inputWrap {
+    border: 1px solid #ccc;
+    padding: 4px 8px;
+}
+
+.inputWrap:hover {
+    border: 1px solid black;
+}
+
+.sanInput input {
+    width: 150px;
+    height: 19px;
+    font-size: 12px;
+    line-height: 20px;
+    border: none;
+    outline: none;
+}
+</style>

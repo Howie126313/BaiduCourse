@@ -6,6 +6,7 @@
         <router-link class="jumpBtn" to="/mission2_2">MVVM 2.2</router-link>    
         <router-link class="jumpBtn" to="/mission2_3">MVVM 2.3</router-link>
         <router-link class="jumpBtn" to="/mission2_4">MVVM 2.4</router-link>
+        <router-link class="jumpBtn" to="/mission2_5">MVVM 2.5</router-link>
       </div>    
       <div class="title">
         <div class="color">Hello {{msg}}</div>

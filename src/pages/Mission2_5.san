@@ -1,0 +1,81 @@
+<template>
+  <div class="mission">
+    <div class="inputWrap">
+      <div class="inputTitle">
+        <div class="top">
+          <div class="t_left">输入框</div>
+          <div class="t_right">
+            <div class="tr_top">控件</div>
+            <div class="tr_bottom">Input</div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom">
+        <san-input
+        on-input="handleInput"
+        placeholder="请输入用户名"
+        value="{{value}}"/>
+      </div>
+    </div>
+    <div class="checkWrap"></div>
+  </div>
+</template>
+
+<script>
+import sanInput from '../components/SanInput.san'
+
+export default {
+  components: {
+    'san-input': sanInput
+  },
+  inntData () {
+    return {
+    }
+  },
+  handleInput (ev) {
+    console.log(ev)
+  }
+}
+</script>
+
+<style scoped>
+.mission {
+    display: flex;
+}
+
+.inputWrap, .checkWrap {
+    width: 50vw;
+    height: 100vh;
+}
+
+.inputTitle {
+    height: 15%;
+    padding: 20px 0 0 40px;
+    background-color: #5C5C5C;
+}
+
+.inputTitle .top {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.t_left {
+    font-size: 40px;
+    color: #fff;
+    margin-right: 5px;
+}
+
+.tr_top {
+    width: fit-content;
+    font-size: 12px;
+    color: #606060;
+    background-color: #858585;
+    padding: 0 5px;
+}
+
+.tr_bottom {
+    color: #A1A1A1;
+}
+
+</style>
