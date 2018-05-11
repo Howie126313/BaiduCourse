@@ -14,7 +14,16 @@
         <san-input
         on-input="handleInput"
         placeholder="请输入用户名"
-        value="{{value}}"/>
+        value="{{value}}"></san-input>
+        <san-input
+        disabled
+        placeholder="请输入用户名"
+        value="{{value}}"></san-input>
+        <san-input
+        error
+        notion="输入出错"
+        placeholder="请输入用户名"
+        value="{{value}}"></san-input>
       </div>
     </div>
     <div class="checkWrap"></div>

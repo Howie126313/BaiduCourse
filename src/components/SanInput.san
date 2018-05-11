@@ -1,14 +1,21 @@
 <template>
   <div class="sanInput">
-    <div class="inputWrap">
+    <div class="mask" s-if="{{disabled}}"></div>    
+    <div 
+    class="inputWrap" 
+    s-ref="inputWrap"
+    style="{{error ? 'border:1px solid red;' : 'border: 1px solid #ccc;'}}">
+      <span s-if="inputing" class="inputing">正在输入</span>
       <input 
+       disabled="{{readOlny}}"
        type="text"
-       on-input="inputHandle"
-       on-focus="focusHandle"
-       on-blur="blurHandle"
+       on-input="inputHandle($event)"
+       on-focus="focusHandle($event)"
+       on-blur="blurHandle($event)"
        placeholder="{{placeholder}}" 
        value="{= value =}"/>
     </div>
+    <span s-if="error" class="errorWords">{{notion}}</span>    
   </div>
 </template>
 
@@ -16,23 +23,30 @@
 export default {
   inntData () {
     return {
-      placeholder: ''
+      placeholder: '',
+      inputing: false
     }  
   },
+  computed: {
+  },
   inited () {
-    console.log(this.data.get('value'))
   },
   inputHandle () {
     this.fire('input', this.data.get('val'))
-    this.data.set('value', '正在输入  ' + this.data.get('value'))
   },
-  focusHandle () {
-    this.fire('focus') 
-    document.querySelector('.sanInput>.inputWrap').style.border = '1px solid black'   
+  focusHandle (event) {
+    this.fire('focus')
+    this.data.set('inputing', true)
+    if (!this.data.get('error')) {
+      event.target.parentNode.style.border = '1px solid black'          
+    } 
   },
-  blurHandle () {
+  blurHandle (event) {
     this.fire('blur')
-    document.querySelector('.sanInput>.inputWrap').style.border = '1px solid #ccc'    
+    this.data.set('inputing', false)
+    if (!this.data.get('error')) {
+      event.target.parentNode.style.border = '1px solid #ccc'          
+    }   
   }
 }
 </script>
@@ -40,12 +54,27 @@ export default {
 <style scoped>
 .sanInput {
     width: fit-content;
+    display: flex;
+    align-items: center;
     margin: 20px;
+    position: relative;    
 }
 
 .inputWrap {
-    border: 1px solid #ccc;
     padding: 4px 8px;
+}
+
+.mask {
+    background-color: rgba(249, 249, 249, 0.6);
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.mask:hover {
+    cursor: not-allowed;
 }
 
 .inputWrap:hover {
@@ -59,5 +88,15 @@ export default {
     line-height: 20px;
     border: none;
     outline: none;
+}
+
+.inputing {
+    font-size: 12px;
+}
+
+.errorWords {
+    margin-left: 10px;
+    font-size: 13px;
+    color: red;
 }
 </style>
