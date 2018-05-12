@@ -26,16 +26,30 @@
         value="{{value}}"></san-input>
       </div>
     </div>
-    <div class="checkWrap"></div>
+    <div class="checkWrap">
+      <div class="inputTitle">
+        <div class="top">
+          <div class="t_left">复选框</div>
+          <div class="t_right">
+            <div class="tr_top">控件</div>
+            <div class="tr_bottom">Check Box</div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <san-checkbox></san-checkbox>      
+    </div>
   </div>
 </template>
 
 <script>
 import sanInput from '../components/SanInput.san'
+import sanCheckbox from '../components/sanCheckbox.san'
 
 export default {
   components: {
-    'san-input': sanInput
+    'san-input': sanInput,
+    'san-checkbox': sanCheckbox
   },
   inntData () {
     return {
@@ -50,10 +64,11 @@ export default {
 <style scoped>
 .mission {
     display: flex;
+    justify-content: space-between;
 }
 
 .inputWrap, .checkWrap {
-    width: 50vw;
+    width: 49vw;
     height: 100vh;
 }
 

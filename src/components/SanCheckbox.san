@@ -1,0 +1,51 @@
+<template>
+  <div class="sanCheckbox">
+    <input type="checkbox" checked="{{checked}}" id="{{pageHash + 'myCheck'}}">
+    <label for="{{pageHash + 'myCheck'}}"></label>
+  </div>
+</template>
+
+<script>
+export default {
+  inntData () {
+    return {
+      pageHash: new Date().getTime()
+    }
+  }
+}
+</script>
+
+<style scoped>
+.sanCheckbox {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin: 20px;
+    position: relative;
+}
+
+.sanCheckbox input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"] + label::after{
+    width: 30px;
+    height: 30px;
+    content: '';
+    background-image: url(../assets/img/check.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+    position: absolute;
+}
+
+input[type="checkbox"]:checked + label::after{
+    content: '';
+    background-image: url(../assets/img/checked.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+    position: absolute;
+}
+
+</style>

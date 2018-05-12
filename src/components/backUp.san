@@ -1,0 +1,45 @@
+<template>
+  <div class="sanCheckbox">
+    <input type="checkbox" checked="{{checked}}" id="myCheck">
+  </div>
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style scoped>
+.sanCheckbox {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin: 20px;
+    position: relative;
+}
+
+#myCheck {
+}
+
+#myCheck + label::after{
+    width: 30px;
+    height: 30px;
+    content: '';
+    background-image: url(../assets/img/check.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+    position: absolute;
+}
+
+#myCheck:checked + label::after{
+    content: '';
+    background-image: url(../assets/img/checked.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+    position: absolute;
+}
+
+</style>

@@ -28,6 +28,10 @@ module.exports = {
             {
                 test: /\.san$/,
                 use: 'san-loader'
+            },
+            {
+                test: /\.svg|.jpg|.jpeg|.png$/,
+                use: 'file-loader'
             }
         ]
     },
