@@ -1,45 +1,63 @@
 <template>
   <div class="sanCheckbox">
-    <input type="checkbox" checked="{{checked}}" id="myCheck">
+    <label>
+      <input type="checkbox" checked="{{checked}}" id="myCheck">  
+      <span></span>    
+    </label>    
   </div>
 </template>
 
 <script>
 export default {
-
+  inntData () {
+    return {
+      pageHash: new Date().getTime()
+    }
+  },
+  attached () {
+    var checkbox = document.getElementById("myCheck");
+    checkbox.indeterminate = true;
+  }
 }
 </script>
 
 <style scoped>
 .sanCheckbox {
     display: inline-block;
-    width: 30px;
-    height: 30px;
-    margin: 20px;
-    position: relative;
 }
 
-#myCheck {
+input[type="checkbox"] {
+  appearance: none; 
+  -webkit-appearance: none;
+  outline: none;
+  display: none;
 }
 
-#myCheck + label::after{
-    width: 30px;
-    height: 30px;
-    content: '';
-    background-image: url(../assets/img/check.svg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 30px 30px;
-    position: absolute;
+label {
+  width:20px;
+  height:20px;
+  display:inline-block;
+  cursor:pointer;
 }
 
-#myCheck:checked + label::after{
-    content: '';
-    background-image: url(../assets/img/checked.svg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 30px 30px;
-    position: absolute;
+label input[type="checkbox"] + span {
+  width:20px;
+  height:20px;
+  display:inline-block;
+  background-image:url(../assets/img/check.svg);
+  background-repeat: no-repeat;
+  background-size: 20px 20px;  
+  background-position:center;
+}
+
+label input[type="checkbox"]:checked + span {
+  width:20px;
+  height:20px;
+  display:inline-block;
+  background-image:url(../assets/img/checked.svg);
+  background-repeat: no-repeat;
+  background-size: 20px 20px;  
+  background-position:center;
 }
 
 </style>

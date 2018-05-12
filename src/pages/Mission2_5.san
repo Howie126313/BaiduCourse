@@ -37,7 +37,22 @@
       </div>
     </div>
     <div class="bottom">
-      <san-checkbox></san-checkbox>      
+      <div>
+        <span>未选中</span>
+        <san-checkbox></san-checkbox>              
+      </div>
+      <div>
+        <span>选中</span>
+        <san-checkbox checked></san-checkbox>              
+      </div>
+      <div>
+        <span>无效</span>
+        <san-checkbox disabled></san-checkbox>              
+      </div>
+      <div>
+        <span>必选</span>
+        <san-checkbox disabled checked></san-checkbox>              
+      </div>    
     </div>
   </div>
 </template>
@@ -102,4 +117,14 @@ export default {
     color: #A1A1A1;
 }
 
+.checkWrap .bottom {
+  display: flex;
+  margin: 20px;
+}
+
+.checkWrap .bottom>div {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
 </style>
