@@ -2,8 +2,8 @@
   <div class="sanCheckbox">
     <label>
       <input type="checkbox" checked="{{checked}}" id="myCheck">  
-      <span></span>    
-    </label>    
+      <span></span> 
+    </label>
   </div>
 </template>
 
