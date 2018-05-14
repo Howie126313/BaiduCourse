@@ -16,7 +16,6 @@
 </template>
 
 <script>
-  import {DataTypes} from 'san'
   import {Link} from 'san-router'  
 
   export default {
@@ -25,40 +24,8 @@
     },
     initData () {
       return {
-        msg: 'San',
-        info: {
-          name: null,
-          age: null,
-          des: null
-        }
+        msg: 'San'
       };
-    },
-    dataTypes: {
-      info: DataTypes.shape({
-        name: DataTypes.string,
-        age: DataTypes.number,
-        des: DataTypes.string
-      })
-    },
-    numberStr (str) {
-      if (typeof(Number(str)) == 'number' && !isNaN(Number(str))) {
-        this.data.set('age', Number(str))
-      } else if (Number(str) == '0') {
-        this.data.set('ageNum', null)
-      } else {
-        alert('年龄只能是数字')
-        this.data.set('ageNum', null)
-      }
-    },
-    clearData (data) {
-      let clear = {
-        name: '',
-        age: null,
-        des: ''
-      }
-      this.data.set('info', clear)
-      this.data.set('age', null)
-      this.data.set('ageNum', null)
     }
   }
 </script>
